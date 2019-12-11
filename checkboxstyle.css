@@ -1,0 +1,67 @@
+.toggle-checkbox {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.toggle-checkbox-describtion {
+  color: red;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"] + label {
+  width: 30px;
+  height: 15px;
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  background-color: #eee;
+  display: inline-block;
+  float: left;
+  margin-right: 2px;
+  transition: background-color 0.5s linear;
+  margin-top: 0px;
+}
+input[type="checkbox"] + label:hover {
+  cursor: pointer;
+}
+input[type="checkbox"] + label::before {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  background-color: #fff;
+  display: block;
+  content: "";
+  float: left;
+  margin-right: 2px;
+  transition: margin 0.1s linear;
+  box-shadow: 0px 0px 2px #aaa;
+}
+
+input[type="checkbox"]:disabled:checked + label::before {
+  background-color: #f2f2f2;
+}
+
+input[type="checkbox"]:disabled:checked + label {
+  background-color: #b4f0a8;
+}
+
+input[type="checkbox"]:checked + label {
+  background-color: #e5e5e5;
+}
+
+input[type="checkbox"] + label + label {
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label {
+  background-color: #2b8718;
+}
+
+input[type="checkbox"]:checked + label::before {
+  margin: 0 0 0 15px;
+}

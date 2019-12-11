@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <script src="./hyperscript.js" type="text/javascript"></script>
+    <script src="./cookie-consent-dialog.js" type="text/javascript"></script>
+
+    <script src="cookie-localization.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="./style.css" type="text/css" media="screen" />
+
+    <link
+      rel="stylesheet"
+      href="./checkboxstyle.css"
+      type="text/css"
+      media="screen"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/javascript">
+      const hh = hyperscriptHelpers(hyperscript);
+      window.cookieDialog = CookieDialog(hh, {
+        
+        // HTMLElement => sets the parrent element ; optional
+        // wird bevorzugt
+        containerElement: document.body,
+
+        // in welchem div soll der dialog rein? => string ; optional
+        // wird nur berücksichtigt, wenn containerElement nicht gesetzt ist
+        containerId: "root",
+
+        localization: createLocalization(hh),
+        // welche sprache soll verwendet wern?  => string | function => string
+        lang: function() {
+          return "de";
+        },
+
+        // welche cookies sind möglich? => ["essential", "statistics", "marketing", "external-media"],
+        checkboxes: ["essential", "statistics", "marketing", "external-media"],
+        // handler => function | number ; default closes dialog
+        onSave: undefined,
+        // handler => function | number ; default closes dialog
+        onAcceptAll: 400,
+        // handler => function ; is executed once after dialog is closed or already saved consent
+        onComplete: function(data) {
+          // Hier die extra tag herein laden!
+          console.log(data);
+        },
+      });
+    </script>
+    <script>
+      cookieDialog.openIfUnset();
+
+      //cookieDialog.close();
+    </script>
+
+    <button onclick="cookieDialog.open()">Open</button>
+    <button onclick="cookieDialog.close()">Close</button>
+
+    <div>
+      <div>
+        <div class="toggle-checkbox">
+          <input id="check" type="checkbox" disabled="true"  checked/>
+          <label for="check"></label>
+          <label for="check">Essenziell</label>
+        </div>
+        <p class="toggle-describtion">Hellas</p>
+      </div>
+
+
+
+
+      <div class="toggle-checkbox">
+          <input id="check1" type="checkbox" />
+          <label for="check1"></label>
+          <label for="check1">Essenziell</label>
+        </div>
+        <p class="toggle-checkbox-describtion">Hulahu</p>
+      </div>
+      
+    </div>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+/************************************************************
+ *
+ *				Overlay 
+ *				
+ ***********************************************************/
+#overlay-bg {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1001;
+  overflow-y: scroll;
+  display: none;
+  backdrop-filter: blur(4px);
+}
+#overlay-bg.auf {
+  display: block;
+}
+.overlay-content {
+  display: none;
+}
+#overlay {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1002;
+  width: 100%;
+  box-sizing: border-box;
+  visibility: hidden;
+  opacity: 0;
+}
+#overlay.auf {
+  visibility: visible;
+  opacity: 1;
+}
+.overlay-wrap {
+  visibility: hidden;
+  opacity: 0;
+  position: relative;
+  top: -150px;
+  box-sizing: border-box;
+  margin: auto;
+  position: relative;
+  -moz-transition: all 0.75s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+  -webkit-transition: all 0.75s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+  transition: all 0.75s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+}
+#overlay.auf .overlay-wrap {
+  visibility: visible;
+  opacity: 1;
+  top: 0;
+}
+/* 
+   popup - box in der mitte eher klein 
+   */
+#overlay .overlay-wrap.popup {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  width: 90%;
+  max-width: 800px;
+  transform: translate(-50%, -50%);
+}
+#overlay.auf .overlay-wrap.popup {
+  top: 50%;
+}
+.overlay-wrap.bg-white {
+  background-color: #fff;
+}
+.overlay-wrap.text-black {
+  color: #000;
+}
+.rounded,
+.rounded .btn {
+  border-radius: 4px;
+  overflow: hidden;
+}
+.box-shadow {
+  -webkit-box-shadow: 1px 3px 3px 0 rgba(0, 0, 0, 0.2),
+    1px 3px 15px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 3px 3px 0 rgba(0, 0, 0, 0.2),
+    1px 3px 15px 2px rgba(0, 0, 0, 0.2);
+}
+/* overlay Close */
+.overlayX-font,
+.overlayX-svg {
+  position: absolute;
+  top: 24px;
+  right: 40px;
+}
+.overlayX:hover {
+  cursor: pointer;
+}
+/* X font */
+.overlayX-font {
+  line-height: 38px;
+  font-size: 38px;
+  color: #e30613;
+}
+.overlayX-font:hover {
+  color: #000;
+}
+/* X svg */
+.overlayX-svg {
+  width: 38px;
+  height: 38px;
+  opacity: 0.7;
+}
+.overlayX-svg img {
+  width: 100%;
+}
+.overlayX-svg:hover {
+  opacity: 1;
+}
+.ovl-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.ovl-content {
+  padding: 1.5rem;
+  background-color: #fff;
+}
+.ovl-footer {
+  background: #f9fafb;
+  padding: 1rem 1rem;
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  text-align: right;
+}
+/** WB Anpassunegn **/
+.overlay-wrap {
+  color: #fff;
+}
+.overlay-wrap h2 {
+  color: #15a2ff;
+  padding-bottom: 30px;
+  text-align: center;
+}
+.overlay-wrap h2:after {
+  background-color: #15a2ff;
+  content: "";
+  display: block;
+  height: 2px;
+  margin: 30px auto 0;
+  text-align: center;
+  width: 60px;
+}
