@@ -237,12 +237,12 @@
     function handleComplete(checkboxesProps, checkboxIdPrefix) {
       const checkboxesPropsKeys = Object.keys(checkboxesProps);
 
-      const result = [];
+      const result = {};
       for (var i = 0; i < checkboxesPropsKeys.length; i++) {
         const key = checkboxesPropsKeys[i];
 
         if (isChecked(checkboxIdPrefix + key)) {
-          result.push(key);
+          result[key] = true;
         }
       }
 
