@@ -5,7 +5,7 @@
 
     return {
       de: {
-        title: ["Wir Russen ", strong("verwenden"), " Cookies"],
+        title: ["Wir ", strong("verwenden"), " Cookies"],
         description: [
           "Wir nutzen Cookies auf unserer Website.",
           a("Einige", { href: "#" }),
