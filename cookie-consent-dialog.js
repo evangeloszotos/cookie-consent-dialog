@@ -27,8 +27,12 @@
   };
 
   const localStorageDriver = {
-    save: (checkboxId, value) => localStorage.setItem(checkboxId, !!value),
-    load: checkboxId => localStorage.getItem(checkboxId) === "true"
+    save: function(checkboxId, value) {
+      localStorage.setItem(checkboxId, !!value);
+    },
+    load: function(checkboxId) {
+      localStorage.getItem(checkboxId) === "true";
+    }
   };
 
   // wird verwendet um daten abzuspeichern
@@ -156,7 +160,6 @@
 
     return {
       acceptOnce: function(consent) {
-        console.log("acceptOnce");
         temporaryAccepted[checkboxIdPrefix + consent] = true;
         handleComplete && handleComplete(checkboxesProps, checkboxIdPrefix);
       },
@@ -230,8 +233,9 @@
                           merge(
                             {
                               type: "checkbox",
-                              onclick: event =>
-                                handleCheck(event, ckbConfig, checkboxesProps)
+                              onclick: function(event) {
+                                handleCheck(event, ckbConfig, checkboxesProps);
+                              }
                             },
                             merge(ckbConfig, {
                               name: "cookieCheckboxGroup[]",
@@ -296,7 +300,7 @@
     function calculateInitialParentValue(parentId, checkboxesProps) {
       const parentConfig = checkboxesProps[parentId];
 
-      return parentConfig.childIds.some(childId => {
+      return parentConfig.childIds.some(function(childId) {
         return isChecked(checkboxIdPrefix + childId);
       });
     }
@@ -309,7 +313,7 @@
         checkboxIdPrefix + parentId
       );
 
-      parentCheckBox.checked = parentConfig.childIds.some(childId => {
+      parentCheckBox.checked = parentConfig.childIds.some(function(childId) {
         const childCheckBox = document.getElementById(
           checkboxIdPrefix + childId
         );
@@ -321,7 +325,7 @@
     function handleCheck(event, config, checkboxProps) {
       if (config.childIds) {
         // manage the children
-        config.childIds.forEach(childId => {
+        config.childIds.forEach(function(childId) {
           const childCheckBox = document.getElementById(
             checkboxIdPrefix + childId
           );
@@ -371,13 +375,11 @@
     // LADEN
     function isChecked(checkboxId) {
       return storageDriver.load(checkboxId);
-      //return localStorage.getItem(checkboxId) === "true"; // COOKIE LESEN
     }
 
     // SPEICHERN
     function setCheckbox(checkboxId, value) {
       storageDriver.save(checkboxId, value);
-      //localStorage.setItem(checkboxId, !!value); // true or false | COOKIE SCHREIBEN
     }
 
     // Helper function for {...objA, ...objB} syntax support in IE
@@ -478,5 +480,5 @@
 
   // Global zugänglich machen
   window.CookieDialog = createCookieConsentDialog;
-  CookieDialog.loadExternalMedia = loadExternalMedia;
+  window.CookieDialog.loadExternalMedia = loadExternalMedia;
 })();

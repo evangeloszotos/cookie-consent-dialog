@@ -80,8 +80,8 @@
     </script>
 
     <script type="text/javascript">
-      const hellas = hyperscriptHelpers(hyperscript);
-      window.cookieDialog = CookieDialog(hellas, {
+      const hh = hyperscriptHelpers(hyperscript);
+      window.cookieDialog = CookieDialog(hh, {
         // wohin soll persistiert werden? => "cookie" | "localstorage" , default: "localstorage" | optional
         // "cookie" benötight js-cookie um zu functionieren
         storage: "cookie",
@@ -99,7 +99,7 @@
         // in welchem div soll der dialog rein? => string ; optional
         // wird nur berücksichtigt, wenn containerElement nicht gesetzt ist
         containerId: "root",
-        localization: createLocalization(hellas),
+        localization: createLocalization(hh),
         // welche sprache soll verwendet wern?  => string | function => string
         lang: function() {
           return "de";
