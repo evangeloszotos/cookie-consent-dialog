@@ -9,34 +9,38 @@
         description: [
           "Wir nutzen Cookies auf unserer Website.",
           a("Einige", { href: "#" }),
-          "von ihnen sind essenziell, während andere uns helfen, diese Website und Ihre Erfahrung zu verbessern.",
+          "von ihnen sind essenziell, während andere uns helfen, diese Website und Ihre Erfahrung zu verbessern."
         ],
+        dataPrivacy: a({ href: "https://google.com" }, "Datenschutzerklärung"),
         save: "Speichern",
         acceptAll: "Alle akzeptieren",
-        dataPrivacy: a({ href: "https://google.com" }, "Datenschutzerklärung"),
+
         // Checkbox labels
         essential: {
           label: "Essenziell",
-          describtion:
-            "Essenzielle Cookies ermöglichen grundlegende Funktionen und sind für die einwandfreie Funktion der Website erforderlich.",
+          describtion: "Essenziellestats"
         },
 
         statistics: {
           label: "Statistik",
-          describtion:
-            "Statistik Cookies erfassen Informationen anonym. Diese Informationen helfen uns zu verstehen, wie unsere Besucher unsere Website nutzen.",
+          describtion: "Essenziellestats"
         },
         marketing: {
           label: "Marketing",
-          describtion:
-            "Marketing Cookies werden von Drittanbietern oder Publishern verwendet, um personalisierte Werbung anzuzeigen. Sie tun dies, indem sie Besucher über Websites hinweg verfolgen.",
+          describtion: "Beschreibung der Marketing cookies"
         },
-
         "external-media": {
           label: "Externe Medien",
-          describtion:
-            "Inhalte von Videoplattformen und Social Media Plattformen werden standardmäßig blockiert. Wenn Cookies von externen Medien akzeptiert werden, bedarf der Zugriff auf diese Inhalte keiner manuellen Zustimmung mehr.",
+          describtion: "Beschreibung der Externe Medien cookies"
         },
+        youtube: {
+          label: "Youtube",
+          describtion: "Youtube Text"
+        },
+        vimeo: {
+          label: "Vimeo",
+          describtion: "Vimeo Text"
+        }
       },
       en: {
         title: "WE USE COOKIES",
@@ -47,23 +51,31 @@
 
         essential: {
           label: "Essential",
-          describtion: "Essenziellestats",
+          describtion: "Essenziellestats"
         },
 
         statistics: {
           label: "Statistics",
-          describtion: "Essenziellestats",
+          describtion: "Essenziellestats"
         },
         marketing: {
           label: "Marketing",
-          describtion: "MM",
+          describtion: "MM"
         },
 
         "external-media": {
           label: "External Media",
-          describtion: "MM",
+          describtion: "MM"
         },
-      },
+        youtube: {
+          label: "Youtube",
+          describtion: "Youtube Text English"
+        },
+        vimeo: {
+          label: "Vimeo",
+          describtion: "Vimeo Text English"
+        }
+      }
     };
   };
 })();
