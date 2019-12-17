@@ -152,9 +152,16 @@
         : undefined;
     }
 
+    const temporaryAccepted = {};
+
     return {
+      acceptOnce: function(consent) {
+        console.log("acceptOnce");
+        temporaryAccepted[checkboxIdPrefix + consent] = true;
+        handleComplete && handleComplete(checkboxesProps, checkboxIdPrefix);
+      },
+
       accept: function(consent) {
-        console.log("silent accept", consent);
         setCheckbox(checkboxIdPrefix + consent, true);
         handleComplete && handleComplete(checkboxesProps, checkboxIdPrefix);
       },
@@ -336,7 +343,10 @@
       for (var i = 0; i < checkboxesPropsKeys.length; i++) {
         const key = checkboxesPropsKeys[i];
 
-        if (isChecked(checkboxIdPrefix + key)) {
+        if (
+          temporaryAccepted[checkboxIdPrefix + key] ||
+          isChecked(checkboxIdPrefix + key)
+        ) {
           result[key] = true;
         }
       }

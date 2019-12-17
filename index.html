@@ -30,8 +30,8 @@
       data-consent="youtube"
       data-videoid="0cREFbz4_pY"
     >
-      <button onclick="cookieDialog.accept('youtube')">
-        Youtube akzeptieren
+      <button style="color: red" onclick="cookieDialog.acceptOnce('youtube')">
+        Youtube einmal akzeptieren
       </button>
       <img
         style="width:500px;"
@@ -129,6 +129,7 @@
 
     <script>
       cookieDialog.openIfUnset();
+
       //cookieDialog.loadVideos();
       //cookieDialog.accept("external-media");
 
